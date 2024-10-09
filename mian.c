@@ -1,12 +1,18 @@
-#include <stdio.h>
+#include "asm.h"
 
-int mian(int ac, char **av)
+void fd_puts(int fd, char *str)
 {
-	printf("%s\n", "~ Nya <3");
+	while (*str)
+		write(fd, str++, 1);
+}
+
+int mian(void)
+{
+	fd_puts(1, "~ Nya <3\n");
 	return (0);
 }
 
-int main(int ac, char **av)
+int main(void)
 {
-	return (mian(ac, av));
+	return (mian());
 }
